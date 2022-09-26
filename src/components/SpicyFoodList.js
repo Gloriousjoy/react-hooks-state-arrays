@@ -30,26 +30,31 @@ function handleFilterChange(event) {
     const newFoodArray = [...foods,newFood];
     setFood(newFoodArray);
   }
-  function handleClick {
-  const newFoodArray = foods.filter((food) => food.id !== id);
-    const newFoodArray = foods.map((food) {
-      if (food.id !== id){
-    return {
-      ...food,
-      heatLevel: food.heatLevel + 1;
-    };
-    else {
-      return food;
-    }
-  });
-    setFoods (newFoodArray)
-  }
+//   function handleClick {
+//   const newFoodArray = foods.filter((food) => food.id !== id);
+//     const newFoodArray = foods.map((food) {
+//       if (food.id !== id){
+//     return {
+//       ...food,
+//       heatLevel: food.heatLevel + 1;
+//     };
+//     else {
+//       return food;
+//     }
+//   });
+//     setFoods (newFoodArray)
+//   }
 
-  const foodList = foods.map((food) => (
-    <li key={food.id} onClick={() => handleClick(food.id)}>
-      {food.name} | Heat: {food.heatLevel} | Cuisine: {food.cuisine}
-    </li>
-  ));
+//   const foodList = foods.map((food) => (
+//     <li key={food.id} onClick={() => handleClick(food.id)}>
+//       {food.name} | Heat: {food.heatLevel} | Cuisine: {food.cuisine}
+//     </li>
+//   ));
+const foodList = foodsToDisplay.map((food) => (
+  <li key={food.id} onClick={() => handleLiClick(food.id)}>
+    {food.name} | Heat: {food.heatLevel} | Cuisine: {food.cuisine}
+  </li>
+));
 
   return (
     <div>
