@@ -4,13 +4,6 @@ import { spicyFoods, getNewRandomSpicyFood } from "../data";
 function SpicyFoodList() {
   const [foods, setFoods] = useState(spicyFoods);
   const [filterBy, setFilterBy] = useState("All
-  const foodsToDisplay = foods.filter((food) => {
-  if (filterBy === "All") {
-    return true;
-  } else {
-    return food.cuisine === filterBy;
-  }
-});
  
 function handleFilterChange(event) {
   setFilterBy(event.target.value);
@@ -24,6 +17,13 @@ function handleFilterChange(event) {
     <option value="Mexican">Mexican</option>
   </select>
 );
+  const foodsToDisplay = foods.filter((food) => {
+  if (filterBy === "All") {
+    return true;
+  } else {
+    return food.cuisine === filterBy;
+  }
+});
 
   function handleAddFood() {
     const newFood = getNewRandomSpicyFood();
